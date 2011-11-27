@@ -1,0 +1,178 @@
+/* Main document stylesheet */
+
+body {
+	background: #ddd;
+	font: 12px/1.4 "Lucida Grande", sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+#gallery {
+	box-shadow: 0 1px 2px #555;
+	top: 50%;
+	left: 50%;
+	margin: -300px 0 0 -400px;
+	position: absolute;
+	width: 800px;
+	height: 600px;
+}
+
+#gallery:hover .pages {
+	visibility: visible;
+}
+
+.caption {
+	color: rgba(255, 255, 255, 0.9);
+	font-weight: bold;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.pages {
+	background: rgba(255, 255, 255, 1);
+}
+
+.pages img {
+	-webkit-transition: 0.25s opacity;
+	display: block;
+	float: left;
+	margin: 10px 0 10px 10px;
+}
+
+.pages img.active {
+	opacity: 0.75;
+}
+
+.prev, .next {
+	background: rgba(255, 255, 255, 0.85);
+	box-shadow:
+		inset 0px 1px 0px rgba(255, 255, 255, 0.35),
+		0 1px 1px rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.65);
+	font-weight: bold;
+	line-height: 1;
+	padding: 5px 8px;
+	position: absolute;
+	text-decoration: none;
+	top: 10px;
+	z-index: 3;
+}
+
+.prev {
+	left: 10px;
+}
+
+.next {
+	right: 10px;
+}
+
+.viewport {
+	overflow: hidden;
+	position: relative;
+	height: 480px;
+	width: 800px;
+}
+
+.viewport img {
+	-webkit-transition: 1s -webkit-transform, 1s opacity;
+	-webkit-transform: translate3d(0, 0, 0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.topleft {
+	-webkit-transform-origin: top left;
+}
+
+.topright {
+	-webkit-transform-origin: top right;
+}
+
+.start .hang {
+	-webkit-transform: rotate(0deg);
+	opacity: 1;
+}
+
+.end .hang {
+	-webkit-transform: rotate(45deg);
+	opacity: 0;
+}
+
+.start .squeeze {
+	-webkit-transform: scale3d(0, 0, 0);
+	opacity: 1;
+}
+
+.end .squeeze {
+	-webkit-transform: scale3d(0.4, 0.4, 0.4);
+	opacity: 0;
+}
+
+.start .cardright, .start .cardleft {
+	-webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0) rotate(0);
+	opacity: 1;
+}
+
+.end .cardleft {
+	-webkit-transform: scale3d(0.4, 0.4, 0.4) translate3d(-100%, 0, 0) rotate(90deg);
+	opacity: 0;
+}
+
+.end .cardright {
+	-webkit-transform: scale3d(0.4, 0.4, 0.4) translate3d(100%, 0, 0) rotate(90deg);
+	opacity: 0;
+}
+
+.start .opacity {
+	-webkit-transform: translate3d(0, 0, 0);
+	opacity: 1;
+}
+
+.end .opacity {
+	-webkit-transform: translate3d(0, 0, 0);
+	opacity: 0;
+}
+
+.start .movedown, .start .moveup {
+	-webkit-transform: translate3d(0, 0, 0);
+	opacity: 1;
+}
+
+.end .movedown {
+	-webkit-transform: translate3d(0, 100%, 0);
+	opacity: 0;
+}
+
+.end .moveup {
+	-webkit-transform: translate3d(0, -100%, 0);
+	opacity: 0;
+}
+
+.out {
+	z-index: 3;
+}
+
+.spin {
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	visibility: visible;
+	position: absolute;
+	top: 220px;
+	left: 50%;
+	margin-left: -25px;
+	width: 50px;
+	height: 50px;
+	z-index: 5;
+}
+
+.spin.hidden {
+	visibility: hidden;
+	z-index: -1;
+}

@@ -1,0 +1,129 @@
+/* Main document stylesheet */
+
+body {
+	background: #B5BCC7;
+	font: 12px/1.4 "Lucida Grande", sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+.spin {
+	background: rgb(255, 255, 255);
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	visibility: visible;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -25px;
+	margin-top: -25px;
+	width: 50px;
+	height: 50px;
+	z-index: 4;
+}
+
+.spin.hidden {
+	visibility: hidden;
+	z-index: -1;
+}
+
+#overlay {
+	-webkit-transition: 0.5s opacity;
+	-webkit-transform: translate3d(0, 0, 0);
+	background: rgba(255, 255, 255, 0.8);
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 2;
+}
+
+#closearea {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#overlay.visible {
+	opacity: 1;
+}
+
+#inner.visible {
+	-webkit-transform: scale3d(1, 1, 1);
+	opacity: 1;
+}
+
+#inner {
+	-webkit-transition: 0.5s opacity, 0.5s -webkit-transform;
+	-webkit-transform: scale3d(0.8, 0.8, 0.8);
+	opacity: 0;
+	background: #fff;
+	border: 4px solid #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+}
+
+#inner img {
+	display: block;
+}
+
+#caption {
+	color: rgba(255, 255, 255, 0.9);
+	font-weight: bold;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+#images {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -52px 0 0 -228px;
+	text-align: center;
+}
+
+#images li {
+	float: left;
+	list-style: none;
+	margin: 0 5px;
+}
+
+#images li:hover {
+	cursor: pointer;
+}
+
+#images li img {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	border: 2px solid #fff;
+	border-radius: 3px;
+	display: block;
+}
+
+#close {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	background-image: url(../images/close.png);
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: -16px;
+	left: -16px;
+	z-index: 6;
+	text-decoration: none;
+	text-indent: 999px;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+#inner:hover #close {
+	visibility: visible;
+}
