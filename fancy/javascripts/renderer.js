@@ -126,12 +126,12 @@
       return this.spinner.stop();
     };
     Renderer.prototype.display = function(item) {
-      var image, incoming, num, _ref;
+      var incoming, num, _ref;
       this.updateCaption(item.description);
       if (this.viewport.childNodes.length === 0) {
-        image = new Image();
-        image.src = item.full;
-        return this.viewport.appendChild(image);
+        this.image = new Image();
+        this.image.src = item.full;
+        return this.viewport.appendChild(this.image);
       } else {
         if (this.viewport.childNodes.length > 1) {
           for (num = 1, _ref = this.viewport.childNodes.length - 1; 1 <= _ref ? num <= _ref : num >= _ref; 1 <= _ref ? num++ : num--) {
@@ -178,10 +178,12 @@
     Renderer.prototype.setActiveThumb = function(index) {
       var active, _i, _len, _ref;
       if (!this.activeStarted) {
-        this.pages.getElementsByTagName("img")[index].className = "active";
+        if (this.pages !== void 0) {
+          this.pages.getElementsByTagName("img")[index].className = "active";
+        }
         return this.activeStarted = true;
       } else {
-        _ref = gallery.getElementsByClassName("active");
+        _ref = this.gallery.getElementsByClassName("active");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           active = _ref[_i];
           active.className = "";

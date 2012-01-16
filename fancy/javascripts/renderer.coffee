@@ -116,9 +116,9 @@ class self.Renderer
 	display: (item) ->
 		@updateCaption item.description
 		if @viewport.childNodes.length is 0
-			image = new Image()
-			image.src = item.full
-			@viewport.appendChild image
+			@image = new Image()
+			@image.src = item.full
+			@viewport.appendChild @image
 		else
 			if @viewport.childNodes.length > 1
 				for num in [1..@viewport.childNodes.length-1]
@@ -166,10 +166,11 @@ class self.Renderer
 	
 	setActiveThumb: (index) ->
 		unless @activeStarted
-			@pages.getElementsByTagName("img")[index].className = "active"
+			if @pages isnt undefined
+				@pages.getElementsByTagName("img")[index].className = "active"
 			@activeStarted = true
 		else
-			for active in gallery.getElementsByClassName("active")
+			for active in @gallery.getElementsByClassName("active")
 				active.className = ""
 			@pages.getElementsByTagName("img")[index].className = "active"
 	
