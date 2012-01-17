@@ -1,0 +1,47 @@
+/* Main document stylesheet */
+
+body {
+	background: #ddd;
+	font: 12px/1.4 "Lucida Grande", sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+#gallery {
+	box-shadow: 0 1px 2px #555;
+	top: 50%;
+	left: 50%;
+	margin: -300px 0 0 -400px;
+	position: absolute;
+	width: 800px;
+	height: 600px;
+}
+
+.pages {
+	background: rgba(255, 255, 255, 1);
+	line-height: 1;
+}
+
+.pages li {
+	display: inline-block;
+	list-style: none;
+	margin: 10px 0 10px 10px;
+}
+
+.pages img {
+	display: block;
+}
+
+.pages img.active {
+	opacity: 0.75;
+}
+
+.viewport {
+	overflow: hidden;
+	position: relative;
+	height: 480px;
+	width: 800px;
+}
+
+.viewport img {
+	display: block;
+}
